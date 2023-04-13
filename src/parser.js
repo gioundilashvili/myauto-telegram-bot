@@ -1,7 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 
-const telegramToken = "6294229070:AAF6aHSIeQK3K2fG0CU6UaJcLSV6ESOP7rY";
-const telegramChatId = "-928118874";
+const telegramToken = "6091051731:AAGhFQs_ZcJ0u67UEWdFKKAMGhlvTBOAJKA";
+const telegramChatId = "AKB1Rx9OsnlmZGQ6";
 // const telegramChatId = "-659894347"; // debug
 
 module.exports = {
