@@ -3,7 +3,7 @@ const parser = require("./src/parser");
 const axios = require("axios");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
-  "mongodb+srv://hehuser:0wgYendSkhmXfrii@cluster0.3quzth5.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://gundilashvili:<Dartedfa1@#>@cluster0.fptjjlu.mongodb.net/?retryWrites=true&w=majority";
 
 const dbClient = new MongoClient(uri, {
   useNewUrlParser: true,
