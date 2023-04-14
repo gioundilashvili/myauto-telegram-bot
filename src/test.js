@@ -80,5 +80,5 @@ async function testMongoTrigger() {
   process.exit(0);
 }
 
-// testApi();
-testMongoTrigger();
+testApi();
+// testMongoTrigger();

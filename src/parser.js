@@ -87,33 +87,42 @@ module.exports = {
       const invalidItems = [];
       const validItems = [];
       for (const item of newItems) {
-        console.log(`Senging photos of ${item.car_id}`);
-        let captionAdded = false;
-        try {
-          await httpClient.post(
-            `https://api.telegram.org/bot${telegramToken}/sendMediaGroup`,
-            {
-              chat_id: telegramChatId,
-              media: createImageUrls(item).map((photo) => {
-                const body = {
-                  type: "photo",
-                  media: photo,
-                };
-                if (!captionAdded) {
-                  body.caption = createMessage(item);
-                }
-                captionAdded = true;
-                return body;
-              }),
-            }
-          );
-          validItems.push(item);
-        } catch (e) {
-          await new Promise((resolve) => setTimeout(resolve, 5000));
-          const messageSend = await sendMessageToTelegram(createMessage(item));
-          if (!messageSend) return invalidItems.push(item);
-          console.log(e);
+        const images = createImageUrls(item);
+        if (images.length === 0) {
+          console.log(`Senging description of ${item.car_id}`);
+          await sendMessageToTelegram(createMessage(item));
+        } else {
+          console.log(`Senging photos of ${item.car_id}`);
+          let captionAdded = false;
+          try {
+            await httpClient.post(
+              `https://api.telegram.org/bot${telegramToken}/sendMediaGroup`,
+              {
+                chat_id: telegramChatId,
+                media: images.map((photo) => {
+                  const body = {
+                    type: "photo",
+                    media: photo,
+                  };
+                  if (!captionAdded) {
+                    body.caption = createMessage(item);
+                  }
+                  captionAdded = true;
+                  return body;
+                }),
+              }
+            );
+            validItems.push(item);
+          } catch (e) {
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+            const messageSend = await sendMessageToTelegram(
+              createMessage(item)
+            );
+            if (!messageSend) return invalidItems.push(item);
+            console.log(e);
+          }
         }
+
         if (newItems.indexOf(item) !== newItems.length - 1) {
           await new Promise((resolve) => setTimeout(resolve, 5000));
         }
@@ -126,8 +135,9 @@ module.exports = {
     }
 
     async function sendMessageToTelegram(text) {
+      console.log("Sending message");
       try {
-        httpClient.post(
+        await httpClient.post(
           `https://api.telegram.org/bot${telegramToken}/sendMessage`,
           {
             chat_id: telegramChatId,
