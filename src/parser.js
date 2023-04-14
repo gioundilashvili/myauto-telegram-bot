@@ -57,6 +57,7 @@ module.exports = {
         engine_volume: "ძრავი",
         car_run_km: "გარბენი km",
         vin: "VIN",
+        locations: "მდებარეობა",
       };
 
       for (let key in props) {
