@@ -33,7 +33,8 @@ module.exports = {
         const urls = [];
         for (let page = 1; page <= 2; page++) {
           urls.push(
-            `https://api2.myauto.ge/ka/products?Page=${page}&Limit=10&SortOrder=1&TypeID=2&ForRent=0&Mans=&Cats=17&ProdYearFrom=2017&EngineVolumeFrom=400&EngineVolumeTo=800&CurrencyID=1&MileageType=1&Locs=23.2.3.4.7.15.30.113.52.37.36.38.39.40.31.5.41.44.47.48.53.54.8.16.6.14.13.12.11.10.9.55.56.57.59.58.61.62.63.64.66.71.72.74.75.76.77.78.80.81.82.83.84.85.86.87.88.91.96.97.101.109.1`
+            `https://api2.myauto.ge/ka/products?Page=${page}&Limit=10&SortOrder=1&TypeID=0&ForRent=0&Mans=5.2001&CurrencyID=1&MileageType=1&Locs=2.3.4.7.15.30.113.52.37.36.38.39.40.31.5.41.44.47.48.53.54.8.16.6.14.13.12.11.10.9.55.56.57.59.58.61.62.63.64.66.71.72.74.75.76.77.78.80.81.82.83.84.85.86.87.88.91.96.97.101.109.1`
+            // `https://api2.myauto.ge/ka/products?Page=${page}&Limit=10&SortOrder=1&TypeID=2&ForRent=0&Mans=&Cats=17&ProdYearFrom=2017&EngineVolumeFrom=400&EngineVolumeTo=800&CurrencyID=1&MileageType=1&Locs=23.2.3.4.7.15.30.113.52.37.36.38.39.40.31.5.41.44.47.48.53.54.8.16.6.14.13.12.11.10.9.55.56.57.59.58.61.62.63.64.66.71.72.74.75.76.77.78.80.81.82.83.84.85.86.87.88.91.96.97.101.109.1`
             // `https://api2.myauto.ge/ka/products?Page=${page}&Limit=10&TypeID=0&ForRent=0&Mans=&Cats=1&ProdYearFrom=2005&PriceTo=3000&EngineVolumeFrom=1600&EngineVolumeTo=6000&CurrencyID=1&MileageType=1&2.3.4.7.15.30.113.52.37.36.38.39.40.31.5.41.44.47.48.53.54.8.16.6.14.13.12.11.10.9.55.56.57.59.58.61.62.63.64.66.71.72.74.75.76.77.78.80.81.82.83.84.85.86.87.88.91.96.97.101.109.1`
           );
         }
